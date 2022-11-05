@@ -136,14 +136,26 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
                         fill=heartColor, outline='black')
 
     drawRobotLegs(canvas, app, adjustX, sX, sY)
+    #drawRobotArms(canvas, app, adjustX, sX, sY)
+
+def drawRobotArms(canvas, app, adjustX, sX, sY):
+    armX = 150 * sX
+    armY = 90 * sY
+    armW = 30 * sX
+    armH = 30 * sY
+
+    rect(canvas, app, armX - adjustX, armY, armH, armW, grey(60))
+    rect(canvas, app, -armX- adjustX, armY, armH, armW, grey(60))
+
 
 def drawRobotLegs(canvas, app, adjustX, sX, sY):
-    legX = 0 * sX - adjustX
-    legY = 300 * sY
-    legW = 10 * sX
-    legH = 12 * sY
+    legX = 80 * sX
+    legY = 240 * sY
+    legW = 30 * sX
+    legH = 30 * sY
 
-    rect(canvas, app, legX, legY, legW, legH, grey(60))
+    rect(canvas, app, legX - adjustX, legY, legH, legW, grey(60))
+    rect(canvas, app, -legX- adjustX, legY, legH, legW, grey(60))
 
 def drawNiceRobot(app, canvas, adjustX):
     # scale
