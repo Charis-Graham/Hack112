@@ -1,0 +1,35 @@
+Question 1: How are you?
+Answers: smiley face, sad face, meh face
+
+Question 2: How much have you eaten today?
+Answers: 1 meal, 2 meal, 3 meals
+Points: 1 point, 2 points, 3 points
+Baseline: 2 points for functioning
+
+Question 2.5: Have you drunk water today?
+Answers: less than 4, 4-6 glasses, more than 6 glasses
+Baseline: 1 point, 2 points, 3 points
+
+Question 3: How much have you slept today?
+Answers: less than 7, 7-9 hours, more than 9 hours
+Points: 1 point, 2 points, 2 points
+Baseline: 7-9 hours for functioning
+
+Question 4: Have you exercised today?
+Answers: 10 min, 20 min, more than 20
+Baseline: 10 minutes
+
+Question 5: Have you spent time with friends or family today?
+Answers: yes, no
+Baseline: no, but extra for yes
+
+Question 6: Have you gone outside today?
+Answers: yes, no
+Baseline: no, but extra for yes
+
+Question 7: Have you meditated today?
+Answers: yes, no
+Baseline: no, but extra for yes
+
+Last:
+list of suggestions for what you can do!
