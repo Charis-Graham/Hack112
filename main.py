@@ -1,10 +1,7 @@
 from cmu_112_graphics import *
 
 def appStarted(app):
-    app.rows = 4
-    app.cols = 8
-    app.margin = 5 # margin around grid
-    app.selection = (-1, -1) # (row, col) of selection, (-1,-1) for none
+    print("")
 
 def rect(canvas, app, xCenter, yCenter, heightScale, widthScale, color):
     w = app.width
@@ -142,7 +139,7 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
 
 def drawRobotLegs(canvas, app, adjustX, sX, sY):
     legX = 0 * sX - adjustX
-    legY = 150 * sY
+    legY = 300 * sY
     legW = 10 * sX
     legH = 12 * sY
 
@@ -150,7 +147,7 @@ def drawRobotLegs(canvas, app, adjustX, sX, sY):
 
 def drawNiceRobot(app, canvas, adjustX):
     # scale
-    initWidth = 800
+    initWidth = 900
     initHeight = 600
 
     # choose the smaller scale
@@ -195,15 +192,15 @@ def drawTopWindow(app, canvas):
 
 # draw the side
 def drawSideBar(app, canvas):
-    sideBarMargin = app.width//3
+    sideBarMargin = (app.width//5)*2
     canvas.create_rectangle(
         app.width-sideBarMargin,0,
         app.width, app.height,
     fill = '#181818', outline = '#181818')
 
 def redrawAll(app, canvas):
-    adjustX = app.width//6
+    adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
     drawWindows(app, canvas)
 
-runApp(width=800, height=600)
+runApp(width=900, height=600)
