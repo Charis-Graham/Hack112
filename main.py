@@ -152,16 +152,14 @@ def redrawAll(app, canvas):
                 xpos = xPos[0]
             elif i == 5 and button == app.noButtonSix:
                 xpos = xPos[1]
-            elif i == 6 and button == app.yesButtonSeven:
-                xpos = xPos[0]
-            elif i == 6 and button == app.noButtonSeven:
-                xpos = xPos[1]
-            elif i == 7 and button == app.yesButtonEight:
-                xpos = xPos[0]
-            elif i == 7 and button == app.noButtonEight:
-                xpos = xPos[1]
-
-            button.drawButton(app, canvas, xpos, yPositions[i])
+#             elif i == 6 and button == app.yesButtonSeven:
+#                 xpos = xPos[0]
+#             elif i == 6 and button == app.noButtonSeven:
+#                 xpos = xPos[1]
+#             elif i == 7 and button == app.yesButtonEight:
+#                 xpos = xPos[0]
+#             elif i == 7 and button == app.noButtonEight:
+#                 xpos = xPos[1]
   
             button.drawButton(app, canvas, xpos, yPositions[i])
 
