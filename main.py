@@ -6,11 +6,10 @@ from color import *
 from buttonsNQuestions import *
 
 def appStarted(app):
-    print("")
     app.sparkles = False
     app.heart = 0
     app.background = 0
-    app.points = 9
+    app.points = 0
     app.mainButtons = loadButtons(app)
     app.smile = 0
     app.eyes = 0
@@ -20,19 +19,6 @@ def appStarted(app):
                         [2,1,8],[8,8,18],[7,3,18],
                         [8,1.5,8],[2,8,3],[7,6,18]]
 
-
-
-"""
-baseline
-happy
-sad
-
-facial expression
-heart color
-background color
-sparkles
-
-"""
 
 def timerFired(app):
     updateExtras(app)
@@ -77,8 +63,8 @@ def mechanics(app):
 
 # draw the windows
 def drawWindows(app, canvas):
-    drawTopWindow(app, canvas)
     drawSideBar(app, canvas)
+    drawTopWindow(app, canvas)
 
 # draw the top
 def drawTopWindow(app, canvas):
@@ -88,7 +74,7 @@ def drawTopWindow(app, canvas):
 
 # draw the side
 def drawSideBar(app, canvas):
-    fillColor = rgbString(32,33,36)
+    fillColor = rgbString(52,53,56)
     sideBarMargin = (app.width//5)*2
     canvas.create_rectangle(
         app.width-sideBarMargin,0,
@@ -98,11 +84,11 @@ def drawSideBar(app, canvas):
 def redrawAll(app, canvas):
     adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
-    drawWindows(app, canvas)
     sampleList = ["Is this a question?", "How goes?", "This is a sentence",
     "Is your mental health in shambles?", "What's your favorite color?"]
     inBetweenBoxes = app.width//30
     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
+    drawWindows(app, canvas)
     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
     if (app.sparkles):
         drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
@@ -115,7 +101,6 @@ def redrawAll(app, canvas):
     questionsText, answerButtons = questionInfo(app)
     for key in range(1, len(questionsText)):
         currentQuestion = question(questionsText[key], answerButtons[key])
-
 
 
 

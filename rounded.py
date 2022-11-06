@@ -67,7 +67,7 @@ def drawRoundedBoxBackground(app, canvas,xSize,ySize,yPosition):
     xDif = xSize
     yDif = ySize//2
 
-    fillColor = rgbString(49,49,52)
+    fillColor = rgbString(89,89,92)
 
     #canvas.create_rectangle(w-textDim,h-textDim,
     #w+textDim, h+textDim, fill = "white")

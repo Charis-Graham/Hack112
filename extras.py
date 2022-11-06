@@ -8,9 +8,6 @@ def updateExtras(app):
     else:
         app.heartColor = rgbString(90,20,20)
 
-def drawSmile(app):
-    print("")
-
 def updateSparkles(app):
     for sparkI in range(len(app.sparkleCoors)):
         current = app.sparkleCoors[sparkI][2]
@@ -54,7 +51,6 @@ def drawSmile(app, canvas,sX, sY, adjustX):
                     w/2 + mouthLength/2 - adjustX, h/2 - mouthHeight - mouthLength//4, 
                     fill=mouthColor, width = 5)
     if app.smile == 2:
-        print("hi")
         canvas.create_line(w/2 - mouthLength/2 - adjustX, h/2 - mouthHeight, 
                     w/2 - mouthLength/2 - adjustX, h/2 - mouthHeight - mouthLength//4, 
                     fill=mouthColor, width = 5)
