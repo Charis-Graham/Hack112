@@ -69,12 +69,24 @@ def loadButtons(app, size):
 def response(app, point):
     app.points += point
 
+def changeToWhite(app, altered,imageTitle, newR = 255,newG = 255,newB = 255):
+    image = Image.open(imageTitle).convert("RGBA")
+    #app.brush = Image.open("brush.png").convert("RGBA")
+    r,g,b,a = altered.split()
+    r = r.point(lambda i: (i+1) * newR)
+    g = g.point(lambda i: (i + 1) * newG)
+    b = b.point(lambda i: (i+1) * newB)
+    altered = Image.merge('RGBA', (r, g, b, a))
+    altered.save("result/"+imageTitle,"PNG")
+
 #getImage created by Ollie Arrison
 def getImage(name, app):
    imageTitle = "buttons/" + name + ".png"
    imageTitleActive = "buttons/" + name + "-active" + ".png"
  
    image = app.loadImage(imageTitle)
+   #changeToWhite(app, image, imageTitle)
+   #changeToWhite(app, image, imageTitleActive)
    image = app.scaleImage(image, 1)
  
    imageActive = app.loadImage(imageTitleActive)
