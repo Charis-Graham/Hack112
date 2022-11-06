@@ -32,20 +32,20 @@ def mousePressed(app, event):
         button.checkClicked(mouseX, mouseY, app)
 
 def mechanics(app):
-    if app.points == 9:
+    if app.points == 6:
         app.sparkles = True
         app.heart = 2
         app.background = 2
         app.smile = 2
         app.eyes = 2
-    elif app.points > 5:
+    elif app.points > 4:
         #happy robot
         app.sparkles = False
         app.heart = 2
         app.background = 2
         app.smile = 2
         app.eyes = 2
-    elif app.points > 4:
+    elif app.points >= 3:
         # functional robot
         app.sparkles = False
         app.heart = 1
