@@ -2,10 +2,29 @@ from cmu_112_graphics import *
 from robot import *
 from roundedBox import *
 from rounded import *
+from extras import *
 
 def appStarted(app):
     print("")
+    app.sparkles = False
+    app.heart =2
 
+    app.heartColor = grey(100)
+
+"""
+baseline
+happy
+sad
+
+facial expression
+heart color
+background color
+sparkles
+
+"""
+
+def timerFired(app):
+    updateExtras(app)
 
 # draw the windows
 def drawWindows(app, canvas):

@@ -1,3 +1,5 @@
+# robot code is modified from Ollie Arrison's (darrison) week 3 homework
+
 def grey(n):
     return rgbString(n, n, n)
 
@@ -86,7 +88,7 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
 
     mouthColor = grey(80)
     eyeColor = grey(130)
-    heartColor = grey(100)
+    heartColor = app.heartColor
 
     eyeX = -50 * sX
     eyeY = -110 * sY
@@ -132,17 +134,6 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
                         fill=heartColor, outline='black')
 
     drawRobotLegs(canvas, app, adjustX, sX, sY)
-    #drawRobotArms(canvas, app, adjustX, sX, sY)
-
-def drawRobotArms(canvas, app, adjustX, sX, sY):
-    armX = 150 * sX
-    armY = 90 * sY
-    armW = 30 * sX
-    armH = 30 * sY
-
-    rect(canvas, app, armX - adjustX, armY, armH, armW, grey(60))
-    rect(canvas, app, -armX- adjustX, armY, armH, armW, grey(60))
-
 
 def drawRobotLegs(canvas, app, adjustX, sX, sY):
     legX = 80 * sX
