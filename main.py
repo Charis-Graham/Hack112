@@ -116,7 +116,54 @@ def redrawAll(app, canvas):
                                             inBetweenBoxes, adjustX)
         questionText, answerButtons = questionInfo(app)
         for button in answerButtons[i]:
-            button.drawButton(app, canvas, xPositions[i], yPositions[i])
+            xPos = [app.width - (app.width//5)*2, 
+                        app.width- (app.width//5)*2 + (app.height//10),
+                        app.width- (app.width//5)*2 + 2*(app.height//10),
+                        app.width- (app.width//5)*2 + 3*(app.height//10),
+                        ]
+            
+            if i == 0 and button == app.smileButton:
+                xpos = xPos[0]
+            elif i == 0 and button == app.frownButton:
+                xpos = xPos[1]
+            elif i == 0 and button == app.neutralButton:
+                xpos = xPos[2]
+            elif i == 1 and button == app.noFoodButton:
+                xpos = xPos[0]
+            elif i == 1 and button == app.oneButton:
+                xpos = xPos[1]
+            elif i == 1 and button == app.twoButton:
+                xpos = xPos[2]
+            elif i == 1 and button == app.threeButton:
+                xpos = xPos[3]
+            elif i == 2 and button == app.yesButtonThree:
+                xpos = xPos[0]
+            elif i == 2 and button == app.noButtonThree:
+                xpos = xPos[1]
+            elif i == 3 and button == app.yesButtonFour:
+                xpos = xPos[0]
+            elif i == 3 and button == app.noButtonFour:
+                xpos = xPos[1]
+            elif i == 4 and button == app.yesButtonFive:
+                xpos = xPos[0]
+            elif i == 4 and button == app.noButtonFive:
+                xpos = xPos[1]
+            elif i == 5 and button == app.yesButtonSix:
+                xpos = xPos[0]
+            elif i == 5 and button == app.noButtonSix:
+                xpos = xPos[1]
+            elif i == 6 and button == app.yesButtonSeven:
+                xpos = xPos[0]
+            elif i == 6 and button == app.noButtonSeven:
+                xpos = xPos[1]
+            elif i == 7 and button == app.yesButtonEight:
+                xpos = xPos[0]
+            elif i == 7 and button == app.noButtonEight:
+                xpos = xPos[1]
+
+            button.drawButton(app, canvas, xpos, yPositions[i])
+  
+            button.drawButton(app, canvas, xpos, yPositions[i])
 
   
 
