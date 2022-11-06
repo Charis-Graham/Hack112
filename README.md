@@ -2,7 +2,7 @@
 
 Welcome to our Hack 112 submission BestBot, an application that focuses on emphasizing the importance of taking care of yourself :) 
 
-The premis of this application is to display how an individual's daily actions impact their health and wellbeing using a virtual robot simulation. 
+The premis of this application is to display how an individual's daily actions impact their health and wellbeing using a virtual robot simulation. You will need to run main.py to see the features of this app.
 
 (INSERT SCREENSHOT OF THE SCREEN AT DEFAULT MODE)
 
