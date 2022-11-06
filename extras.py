@@ -1,7 +1,6 @@
+from color import *
+
 def updateExtras(app):
-    if app.sparkles:
-        print(True)
-        
     if app.heart == 0:
         app.heartColor = grey(100)
     elif app.heart == 1:
@@ -33,9 +32,3 @@ def drawSparkle(app, canvas, x, y, size):
                          fill = "white")
 
 
-# function from https://www.cs.cmu.edu/~112/notes/notes-graphics.html
-def rgbString(r, g, b):
-    return f'#{r:02x}{g:02x}{b:02x}'
-
-def grey(n):
-    return rgbString(n, n, n)

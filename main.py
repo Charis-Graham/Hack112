@@ -9,14 +9,11 @@ def appStarted(app):
     print("")
     app.sparkles = False
     app.heart = 0
-    app.background = 2
+    app.background = 0
     app.points = 0
     app.mainButtons = loadButtons(app)
-
+    
     app.heartColor = grey(100)
-    app.sparkles = True
-    app.heart = 2
-    app.background = 2
     app.sparkleCoors = [[1.5,4,10],[5,1.5,2],[3,9,18],
                         [2,1,8],[8,8,18],[7,3,18],
                         [8,1.5,8],[2,8,3],[7,6,18]]
@@ -38,6 +35,7 @@ sparkles
 def timerFired(app):
     updateExtras(app)
     updateSparkles(app)
+    mechanics(app)
 
 def mousePressed(app, event):
     mouseX = event.x
@@ -47,15 +45,24 @@ def mousePressed(app, event):
     print(mouseX, mouseY)
 
 def mechanics(app):
-    if app.points > 5:
+    if app.points == 9:
+        app.sparkles = True
+        app.heart = 2
+        app.background = 2
+    elif app.points > 5:
         #happy robot
-        pass
+        app.sparkles = False
+        app.heart = 2
+        app.background = 2
     elif app.points > 4:
-        #functioning robot
-        pass
+        # functional robot
+        app.sparkles = False
+        app.heart = 1
+        app.background = 1
     else:
-        #unhealthy robot
-        pass
+        # unwell robot
+        app.heart = 0
+        app.background = 0
 
 
 # draw the windows
@@ -82,43 +89,23 @@ def redrawAll(app, canvas):
     adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
     drawWindows(app, canvas)
-    
+    sampleList = ["Is this a question?", "How goes?", "This is a sentence",
+    "Is your mental health in shambles?", "What's your favorite color?"]
+    inBetweenBoxes = app.width//30
+    #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
+    drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
+    if (app.sparkles):
+        drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
+
+    #load in the buttons
+    for button in app.mainButtons:
+        button.drawButton(app, canvas)
+
     #create the questions
     questionsText, answerButtons = questionInfo(app)
     for key in range(1, len(questionsText)):
         currentQuestion = question(questionsText[key], answerButtons[key])
-    
-    #list of questions
-    questionList = ["",
-                    "How are you?",
-                    "How many meals have you eaten today?",
-                    "Have you drunk water today?",
-                    "Have you slept today?",
-                    "Have you exercised today?",
-                    "Have you spent time with friends or family today?",
-                    "Have you gone outside today?",
-                    "Have you meditated today?"]
-    inBetweenBoxes = app.width//30
 
-    #load the questions onto the screen
-    questionOnScreen = []
-    for i in range(1, len(questionList)):
-        questionOnScreen.append(questionList[i])
-        drawRounded(app, canvas, questionOnScreen, inBetweenBoxes, adjustX)
-        
-        # #load in the buttons
-        # for button in app.mainButtons:
-        #     button.drawButton(app, canvas)
-        
-        questionText, answerButtons = questionInfo(app)
-        for button in answerButtons[i]:
-            button.drawButton(app, canvas)
-  
-
-    drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
-
-
-    mechanics(app)
 
 
 
