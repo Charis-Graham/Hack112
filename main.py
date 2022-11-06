@@ -1,5 +1,6 @@
 from cmu_112_graphics import *
 from robot import *
+from roundedBox import *
 
 def appStarted(app):
     print("")
@@ -27,5 +28,9 @@ def redrawAll(app, canvas):
     adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
     drawWindows(app, canvas)
+    sampleList = ["Is this a question?", "How goes?", 
+    "Is your mental health in shambles?", "What's your favorite color?"]
+    inBetween = 20
+    drawRoundedBoxes(app, canvas, sampleList, inBetween)
 
 runApp(width=900, height=600)
