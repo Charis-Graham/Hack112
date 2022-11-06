@@ -13,11 +13,15 @@ def drawSmile(app):
     print("")
 
 def updateSparkles(app):
-    app.sparkleSize = (app.sparkleSize+5) % 20
+    for sparkI in range(len(app.sparkleCoors)):
+        current = app.sparkleCoors[sparkI][2]
+        app.sparkleCoors[sparkI][2] = (current + 5) % 20
 
-def drawSparkles(app, canvas):
-    
-    drawSparkle(app, canvas, x, y, size)
+def drawSparkles(app, canvas,x1,y1,x2,y2):
+    w = (x2 - x1)//10
+    h = (y2 - y1)//10
+    for spark in app.sparkleCoors:
+        drawSparkle(app, canvas, w*spark[0], h*spark[1], spark[2])
 
 def drawSparkle(app, canvas, x, y, size):
     c = [0,1,1,0,0,-1,-1,0]

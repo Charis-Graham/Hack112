@@ -11,9 +11,11 @@ Suggestions
 def appStarted(app):
     print("")
     app.sparkles = True
-    app.heart = 0
+    app.heart = 2
     app.background = 2
-    app.sparkleSize = 10
+    app.sparkleCoors = [[1.5,4,10],[5,1.5,2],[3,9,18],
+                        [2,1,8],[8,8,18],[7,3,18],
+                        [8,1.5,8],[2,8,3],[7,6,18]]
     
 
     app.heartColor = grey(100)
@@ -34,6 +36,7 @@ sparkles
 def timerFired(app):
     updateExtras(app)
     updateSparkles(app)
+    #print(app.sparkleCoors)
 
 # draw the windows
 def drawWindows(app, canvas):
@@ -64,6 +67,7 @@ def redrawAll(app, canvas):
     inBetweenBoxes = app.width//30
     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
-    drawSparkles(app, canvas)
+    
+    drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
 
 runApp(width=900, height=600)
