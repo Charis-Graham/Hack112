@@ -39,32 +39,29 @@ def loadButtons(app, size):
     app.noButtonFive = Button(app, size, 110, 250, response, False, 
                     (getImage("no", app)), 0)
     
-    #buttons for questions 3
-    app.yesButtonSix = Button(app, size, 10, 310, response, False,
-                    (getImage("check", app)), 1)
-    app.noButtonSix = Button(app, size, 110, 310, response, False, 
-                    (getImage("no", app)), 0)
+#     #buttons for questions 3
+#     app.yesButtonSix = Button(app, size, 10, 310, response, False,
+#                     (getImage("check", app)), 1)
+#     app.noButtonSix = Button(app, size, 110, 310, response, False, 
+#                     (getImage("no", app)), 0)
 
-    #buttons for questions 3
-    app.yesButtonSeven = Button(app, size, 10, 370, response, False,
-                    (getImage("check", app)), 1)
-    app.noButtonSeven = Button(app, size, 110, 370, response, False, 
-                    (getImage("no", app)), 0)
+#     #buttons for questions 3
+#     app.yesButtonSeven = Button(app, size, 10, 370, response, False,
+#                     (getImage("check", app)), 1)
+#     app.noButtonSeven = Button(app, size, 110, 370, response, False, 
+#                     (getImage("no", app)), 0)
     
-    #buttons for questions 3
-    app.yesButtonEight = Button(app, size, 10, 430, response, False,
-                    (getImage("check", app)), 1)
-    app.noButtonEight = Button(app, size, 110, 430, response, False, 
-                    (getImage("no", app)), 0)
+#     #buttons for questions 3
+#     app.yesButtonEight = Button(app, size, 10, 430, response, False,
+#                     (getImage("check", app)), 1)
+#     app.noButtonEight = Button(app, size, 110, 430, response, False, 
+#                     (getImage("no", app)), 0)
     
     return [app.smileButton, app.frownButton, app.neutralButton, 
             app.noFoodButton, app.oneButton, app.twoButton, app.threeButton,
             app.yesButtonThree, app.noButtonThree, 
             app.yesButtonFour, app.noButtonFour,
-            app.yesButtonFive, app.noButtonFive,
-            app.yesButtonSix, app.noButtonSix,
-            app.yesButtonSeven, app.noButtonSeven,
-            app.yesButtonEight, app.noButtonEight]
+            app.yesButtonFive, app.noButtonFive]
     
 def response(app, point):
     app.points += point
@@ -161,10 +158,7 @@ def questionInfo(app):
                     "How many meals have you eaten today?",
                     "Have you drunk water today?",
                     "Have you slept today?",
-                    "Have you exercised today?",
-                    "Have you spent time with friends or family today?",
-                    "Have you gone outside today?",
-                    "Have you meditated today?"]   
+                    "Have you exercised today?"]   
 
     #list of the possible answers
     answerButtons = [
@@ -172,10 +166,6 @@ def questionInfo(app):
         [app.noFoodButton, app.oneButton, app.twoButton, app.threeButton],
         [app.yesButtonThree, app.noButtonThree],
         [app.yesButtonFour, app.noButtonFour],
-        [app.yesButtonFive, app.noButtonFive],
-        [app.yesButtonSix, app.noButtonSix],
-        [app.yesButtonSeven, app.noButtonSeven],
-        [app.yesButtonEight, app.noButtonEight]
-    ]
+        [app.yesButtonFive, app.noButtonFive]]
 
     return questionList, answerButtons
