@@ -1,14 +1,15 @@
 from cmu_112_graphics import *
 from robot import *
-from roundedBox import *
 from rounded import *
 from extras import *
+from color import *
 
 def appStarted(app):
     print("")
     app.sparkles = False
     app.heart = 0
     app.background = 2
+    
 
     app.heartColor = grey(100)
 
@@ -35,16 +36,18 @@ def drawWindows(app, canvas):
 
 # draw the top
 def drawTopWindow(app, canvas):
+    fillColor = rgbString(32,33,36)
     canvas.create_rectangle(0,0,app.width,app.height//15,
-    fill = '#181818', outline = '#181818')
+    fill = fillColor, outline = '#181818')
 
 # draw the side
 def drawSideBar(app, canvas):
+    fillColor = rgbString(32,33,36)
     sideBarMargin = (app.width//5)*2
     canvas.create_rectangle(
         app.width-sideBarMargin,0,
         app.width, app.height,
-    fill = '#181818', outline = '#181818')
+    fill = fillColor, outline = '#181818')
 
 def redrawAll(app, canvas):
     adjustX = app.width//5

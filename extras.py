@@ -9,6 +9,9 @@ def updateExtras(app):
     else:
         app.heartColor = rgbString(90,20,20)
 
+def drawSmile(app):
+    print("")
+
 def drawSparkle(app, canvas, x, y, size):
     c = [0,3,1,1,0,2,1,-1,0,-2,-1,-1,-2,0,-1,1]
     for i in range(len(c)):
