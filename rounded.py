@@ -3,6 +3,8 @@ from color import *
 def drawRounded(app, canvas, questions, inBetweenBoxes, adjustX):
     yPosition = app.width//15
     width = app.width//5
+    xPositions = []
+    yPositions = []
     for question in questions:
         lineHeight = min(app.height, app.width)//30
         listOfLines = calculateLines(question)
@@ -18,6 +20,10 @@ def drawRounded(app, canvas, questions, inBetweenBoxes, adjustX):
         #rounded(app, canvas, yPosition, width, height)
 
         yPosition += height + inBetweenBoxes * 2
+        
+        xPositions.append(xPosition)
+        yPositions.append(yPosition - 2*inBetweenBoxes)
+    return xPositions, yPositions
 
 
 def calculateLines(question):
