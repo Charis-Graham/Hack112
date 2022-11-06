@@ -74,7 +74,7 @@ def response(app, point):
 def changeToWhite(app, altered,imageTitle, newR = 255,newG = 255,newB = 255):
     image = Image.open(imageTitle).convert("RGBA")
     #app.brush = Image.open("brush.png").convert("RGBA")
-    r,g,b,a = altered.split()
+    r,g,b,a = image.split()
     r = r.point(lambda i: (i+1) * newR)
     g = g.point(lambda i: (i + 1) * newG)
     b = b.point(lambda i: (i+1) * newB)
