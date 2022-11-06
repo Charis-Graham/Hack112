@@ -32,3 +32,6 @@ The user can answer a question with just the simple click of a button. Some of t
 3. Heart color fades
 4. Background can turn into a more "depressing" color.
 
+**After questions are answered:**
+After questions our answered based on the buttons selected by the user, our app will prompt a list of suggestions to help the user incorporate essential
+habits into their lives.
