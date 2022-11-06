@@ -1,40 +1,49 @@
 
-def drawRoundedBoxes(app, canvas, questions, inBetween):
+def drawRoundedBoxes(app, canvas, questions, inBetween, adjustX):
+    topWindowMargin = app.height//15 * 2
+
     margin = app.width//30
-
     w, h = app.width//2,app.height//2
-    width = app.height//5
-    testDim = width
-    canvas.create_rectangle(w-testDim,0,
-    w+testDim, app.height, fill = "white")
-
-    yOffset = -inBetween
+    yOffset = topWindowMargin
 
     for question in questions:
-        boxWidth = 80
+        boxWidth = app.width//8
         lineHeight, listOfLines = calculateLines(question)
         boxHeight = lineHeight * len(listOfLines)
+        r = min(boxHeight, boxWidth)//4
 
         drawRoundedBox(app, canvas, boxHeight, boxWidth, yOffset)
-
-        yOffset += boxHeight*2 + inBetween
-
         drawText(app, canvas, listOfLines, app.width//2, 
-        yOffset - boxHeight, 
-        lineHeight)
+        yOffset,lineHeight)
+
+        yOffset += boxHeight*2 + inBetween + 2*r
+
 
 def drawText(app, canvas, listOfLines, x, y, size):
     textSize = size
+    x -= app.height//20
     yOffset = 0
     for line in listOfLines:
         canvas.create_text(x, y + yOffset, text=line,
-                        font=f'Arial {textSize} bold', fill='black')
+                        font=f'Times {textSize} bold', fill='black')
         yOffset += size
         print(yOffset)
 
 def calculateLines(question):
-
-    return 20, ["the brown", "fox chased the", "lazy dog"]
+    # max 18 characters per line
+    maxCharacters = 25
+    sum = 0
+    listOfWords = [""]
+    for word in question.split():
+        if (len(listOfWords[-1]) + len(word) + 1 <= maxCharacters):
+            if (len(listOfWords[-1]) < 1):
+                listOfWords[-1] += word
+            else:
+                listOfWords[-1] += " " + word
+        else:
+            listOfWords.append(word)
+    print(listOfWords)
+    return 15, listOfWords
 
 def drawRoundedBox(app, canvas, boxHeight, boxWidth, yOffset):
     margin = app.width//30
@@ -49,14 +58,12 @@ def drawRoundedBox(app, canvas, boxHeight, boxWidth, yOffset):
     oppositeCenter = w + (width//2) - margin
     oppositeCenter = h + (width//2) - margin
 
-    drawRoundedBoxBackground(app, canvas,boxWidth,boxHeight,xCenter,yTop)
+    drawRoundedBoxBackground(app, canvas,boxWidth,boxHeight,xCenter,yOffset)
 
 
 
 def drawRoundedBoxBackground(app, canvas,xSize,ySize,xCenter,yCenter):
-    #w, h = app.width//2,app.height//2
     w, h = xCenter, yCenter
-    textDim = 200
 
     textHeight = ySize
     textWidth = xSize
