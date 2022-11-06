@@ -114,16 +114,10 @@ def redrawAll(app, canvas):
         questionOnScreen.append(questionList[i])
         xPositions, yPositions = drawRounded(app, canvas, questionOnScreen, 
                                             inBetweenBoxes, adjustX)
-        if (max(yPositions) + inBetweenBoxes > app.height):
-            reduceList = True
-        else:
-            reduceList = False
         questionText, answerButtons = questionInfo(app)
         for button in answerButtons[i]:
             button.drawButton(app, canvas, xPositions[i], yPositions[i])
-    if (reduceList):
-        questionOnScreen = questionOnScreen[1:]
-        reduceList = False
+
   
 
-runApp(width=900, height=600, title="BestBot")
+runApp(width=890, height=600, title="BestBot")

@@ -14,7 +14,7 @@ def drawRounded(app, canvas, questions, inBetweenBoxes, adjustX):
         xPosition = margin + app.width//5*3
 
         drawRect(app, canvas, yPosition, width, height)
-        drawRoundedBoxBackground(app, canvas,width//2,height,yPosition)
+        drawRoundedBoxBackground(app, canvas,(width//2),height,yPosition)
         drawText(app, canvas, listOfLines, xPosition, 
         yPosition + margin//7, lineHeight)
         #rounded(app, canvas, yPosition, width, height)
@@ -28,7 +28,7 @@ def drawRounded(app, canvas, questions, inBetweenBoxes, adjustX):
 
 def calculateLines(question):
     # max 18 characters per line
-    maxCharacters = 25
+    maxCharacters = 28
     sum = 0
     listOfWords = [""]
     for word in question.split():
