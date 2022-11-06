@@ -30,7 +30,6 @@ def mousePressed(app, event):
     mouseY = event.y
     for button in app.mainButtons:
         button.checkClicked(mouseX, mouseY, app)
-    print(mouseX, mouseY)
 
 def mechanics(app):
     if app.points == 9:
@@ -84,25 +83,41 @@ def drawSideBar(app, canvas):
 def redrawAll(app, canvas):
     adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
-    sampleList = ["Is this a question?", "How goes?", "This is a sentence",
-    "Is your mental health in shambles?", "What's your favorite color?"]
-    inBetweenBoxes = app.width//30
-    #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
-    drawWindows(app, canvas)
-    drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
-    if (app.sparkles):
-        drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
+#     sampleList = ["Is this a question?", "How goes?", "This is a sentence",
+#     "Is your mental health in shambles?", "What's your favorite color?"]
+#     inBetweenBoxes = app.width//30
+#     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
+#     drawWindows(app, canvas)
+#     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
+#     if (app.sparkles):
+#         drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
 
-    #load in the buttons
-    for button in app.mainButtons:
-        button.drawButton(app, canvas)
+#     #load in the buttons
+#     for button in app.mainButtons:
+#         button.drawButton(app, canvas)
 
-    #create the questions
-    questionsText, answerButtons = questionInfo(app)
-    for key in range(1, len(questionsText)):
-        currentQuestion = question(questionsText[key], answerButtons[key])
+#     #create the questions
+#     questionsText, answerButtons = questionInfo(app)
+#     for key in range(1, len(questionsText)):
+#         currentQuestion = question(questionsText[key], answerButtons[key])
 
+    #create the questions 
+    questionList, answerButtons = questionInfo(app)
+    for key in range(0, len(questionList)):
+        currentQuestion = question(questionList[key], answerButtons[key])
+    
+    inBetweenBoxes = app.width//20
 
-
+    #load the questions onto the screen
+    questionOnScreen = []
+    for i in range(0, len(questionList)):
+        questionOnScreen.append(questionList[i])
+        xPositions, yPositions = drawRounded(app, canvas, questionOnScreen, 
+                                            inBetweenBoxes, adjustX)
+        
+        questionText, answerButtons = questionInfo(app)
+        for button in answerButtons[i]:
+            button.drawButton(app, canvas, xPositions[i], yPositions[i])
+  
 
 runApp(width=900, height=600)
