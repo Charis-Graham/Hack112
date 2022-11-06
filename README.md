@@ -26,5 +26,9 @@ The user can answer a question with just the simple click of a button. Some of t
 3. Heart changes to a vibrant color
 4. Smiling face 
 
-
 **When a robot recieves feedback that indicates direction away from optimal health, some visual changes include:**
+1. Happy background starts to fade
+2. Neutral facial expression
+3. Heart color fades
+4. Background can turn into a more "depressing" color.
+
