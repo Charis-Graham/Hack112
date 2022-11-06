@@ -20,11 +20,11 @@ The premis of this application is to display how an individual's daily actions i
 
 The user can answer a question with just the simple click of a button. Some of the answers can be a simple "yes" or "no", while other answers have multiple ranges to select from. Every answer comes with an amount of "People Points" which are added to a score to determine how the robot appears on the screen.
 
-When a robot recieves feedback that indicates direction towards optimal health, some visual changes include:
+**When a robot recieves feedback that indicates direction towards optimal health, some visual changes include:**
 1. Sparkles in the background
 2. happy background color
 3. Heart changes to a vibrant color
 4. Smiling face 
 
 
-When a robot recieves feedback that indicates direction away from optimal health, some visual changes include:
+**When a robot recieves feedback that indicates direction away from optimal health, some visual changes include:**
