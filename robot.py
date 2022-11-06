@@ -1,3 +1,5 @@
+from background import *
+
 # robot code is modified from Ollie Arrison's (darrison) week 3 homework
 
 def grey(n):
@@ -172,7 +174,13 @@ def drawNiceRobot(app, canvas, adjustX):
                                 blue + i // blueRate)
         canvas.create_rectangle(0, backgroundIncrement * i, w, h, 
                             fill=gradientColor, outline=gradientColor)
-
+    
+    if app.background == 0:
+        drawSadBackground(canvas, app, w, h)
+    elif app.background == 1:
+        drawHappyBackGround(canvas, app, w, h)
+    else:
+        drawHappyiestBackGround(canvas, app, w, h)
     # base of robot:
     drawNiceRobotBase(canvas, app, sX, sY, adjustX)
 

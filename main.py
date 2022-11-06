@@ -7,9 +7,11 @@ from extras import *
 def appStarted(app):
     print("")
     app.sparkles = False
-    app.heart =2
+    app.heart = 0
+    app.background = 2
 
     app.heartColor = grey(100)
+
 
 """
 baseline
