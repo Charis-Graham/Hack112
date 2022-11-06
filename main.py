@@ -10,8 +10,10 @@ def appStarted(app):
     app.sparkles = False
     app.heart = 0
     app.background = 0
-    app.points = 0
+    app.points = 9
     app.mainButtons = loadButtons(app)
+    app.smile = 0
+    app.eyes = 0
     
     app.heartColor = grey(100)
     app.sparkleCoors = [[1.5,4,10],[5,1.5,2],[3,9,18],
@@ -49,20 +51,28 @@ def mechanics(app):
         app.sparkles = True
         app.heart = 2
         app.background = 2
+        app.smile = 2
+        app.eyes = 2
     elif app.points > 5:
         #happy robot
         app.sparkles = False
         app.heart = 2
         app.background = 2
+        app.smile = 2
+        app.eyes = 2
     elif app.points > 4:
         # functional robot
         app.sparkles = False
         app.heart = 1
         app.background = 1
+        app.smile = 1
+        app.eyes = 1
     else:
         # unwell robot
         app.heart = 0
         app.background = 0
+        app.smile = 0
+        app.eyes = 0
 
 
 # draw the windows

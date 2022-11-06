@@ -31,4 +31,30 @@ def drawSparkle(app, canvas, x, y, size):
                         c[4]+x,c[5]+y,c[6]+x,c[7]+y,
                          fill = "white")
 
+def eyesColor(app):
+    if app.eyes == 0:
+        return grey(130)
+    elif app.eyes == 1:
+        return grey(160)
+    else:
+        return grey(200)
 
+def drawSmile(app, canvas,sX, sY, adjustX):
+
+    w = app.width
+    h = app.height
+
+    mouthColor = grey(80)
+
+    mouthHeight = 70 * sY
+    mouthLength = 20 * sX
+
+    if app.smile >= 1:
+        canvas.create_line(w/2 + mouthLength/2 - adjustX, h/2 - mouthHeight, 
+                    w/2 + mouthLength/2 - adjustX, h/2 - mouthHeight - mouthLength//4, 
+                    fill=mouthColor, width = 5)
+    if app.smile == 2:
+        print("hi")
+        canvas.create_line(w/2 - mouthLength/2 - adjustX, h/2 - mouthHeight, 
+                    w/2 - mouthLength/2 - adjustX, h/2 - mouthHeight - mouthLength//4, 
+                    fill=mouthColor, width = 5)

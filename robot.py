@@ -1,9 +1,8 @@
 from background import *
+from color import *
+from extras import *
 
 # robot code is modified from Ollie Arrison's (darrison) week 3 homework
-
-def grey(n):
-    return rgbString(n, n, n)
 
 def coor(widthOrHeight, true, scale, dif):
     # adjust the coordinate based on the width, the true adjustment, the scale
@@ -20,11 +19,6 @@ def rect(canvas, app, xCenter, yCenter, heightScale, widthScale, color):
                         coor(w, -widthScale, scale, xCenter),
                         coor(h, -heightScale, scale, yCenter),
                             fill=color, outline='black')
-
-
-# function from https://www.cs.cmu.edu/~112/notes/notes-graphics.html
-def rgbString(r, g, b):
-    return f'#{r:02x}{g:02x}{b:02x}'
 
 def oval(canvas, app, xCenter, yCenter, heightScale, widthScale, color):
     w = app.width
@@ -89,7 +83,7 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
     h = app.height
 
     mouthColor = grey(80)
-    eyeColor = grey(130)
+    eyeColor = eyesColor(app)
     heartColor = app.heartColor
 
     eyeX = -50 * sX
@@ -119,6 +113,8 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
     canvas.create_line(w/2 + mouthLength/2 - adjustX, h/2 - mouthHeight, 
                     w/2 - mouthLength/2 - adjustX, h/2 - mouthHeight, 
                     fill=mouthColor, width = 5)
+
+    drawSmile(app, canvas, sX, sY, adjustX)
 
     # heart
     canvas.create_polygon(coor(w, heartInsideX, heartScale, heartXLoc),
