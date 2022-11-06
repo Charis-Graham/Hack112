@@ -18,7 +18,7 @@ The premis of this application is to display how an individual's daily actions i
 
 (INSERT SCREENSHOT OF AN EXAMPLE QUESTION BEING ASKED)
 
-The user can answer a question with just the simple click of a button. Some of the answers can be a simple "yes" or "no", while other answers have multiple ranges to select from. Every answer comes with an amount of "People Points" which are added to a score to determine how the robot appears on the screen.
+The user can answer a question with just the simple click of a button. Some of the answers can be a simple "yes" or "no", while other answers have multiple ranges to select from. Every answer comes with an amount of "People Points" which are points added to a score to determine how the robot appears on the screen.
 
 **When a robot recieves feedback that indicates direction towards optimal health, some visual changes include:**
 1. Sparkles in the background
