@@ -10,7 +10,7 @@ def appStarted(app):
     app.heart = 0
     app.background = 0
     app.points = 0
-    app.mainButtons = loadButtons(app)
+    app.mainButtons = loadButtons(app,app.height//10)
     app.smile = 0
     app.eyes = 0
     
@@ -87,10 +87,10 @@ def redrawAll(app, canvas):
 #     "Is your mental health in shambles?", "What's your favorite color?"]
 #     inBetweenBoxes = app.width//30
 #     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
-#     drawWindows(app, canvas)
+    drawWindows(app, canvas)
 #     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
-#     if (app.sparkles):
-#         drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
+    if (app.sparkles):
+         drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
 
 #     #load in the buttons
 #     for button in app.mainButtons:
@@ -120,4 +120,4 @@ def redrawAll(app, canvas):
             button.drawButton(app, canvas, xPositions[i], yPositions[i])
   
 
-runApp(width=900, height=600)
+runApp(width=900, height=600, title="BestBot")
