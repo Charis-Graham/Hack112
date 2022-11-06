@@ -1,6 +1,6 @@
-<h1>Best Bot</h1> 
+<h1>BestBot</h1> 
 
-Welcome to our Hack 112 submission Best Bot, an application that focuses on emphasizing the importance of taking care of yourself :) 
+Welcome to our Hack 112 submission BestBot, an application that focuses on emphasizing the importance of taking care of yourself :) 
 
 The premis of this application is to display how an individual's daily actions impact their health and wellbeing using a virtual robot simulation. 
 
