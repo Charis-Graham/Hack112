@@ -3,18 +3,15 @@ from robot import *
 from rounded import *
 from extras import *
 from color import *
-
-"""
-Suggestions
-"""
+from buttonsNQuestions import *
 
 def appStarted(app):
     print("")
-    app.sparkles = True
+    app.sparkles = False
     app.heart = 0
     app.background = 2
-    app.sparkleSize = 10
-    
+    app.points = 0
+    app.mainButtons = loadButtons(app)
 
     app.heartColor = grey(100)
 
@@ -33,7 +30,25 @@ sparkles
 
 def timerFired(app):
     updateExtras(app)
-    updateSparkles(app)
+
+def mousePressed(app, event):
+    mouseX = event.x
+    mouseY = event.y
+    for button in app.mainButtons:
+        button.checkClicked(mouseX, mouseY, app)
+    print(mouseX, mouseY)
+
+def mechanics(app):
+    if app.points > 5:
+        #happy robot
+        pass
+    elif app.points > 4:
+        #functioning robot
+        pass
+    else:
+        #unhealthy robot
+        pass
+
 
 # draw the windows
 def drawWindows(app, canvas):
@@ -64,6 +79,19 @@ def redrawAll(app, canvas):
     inBetweenBoxes = app.width//30
     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
-    drawSparkles(app, canvas)
+
+    #load in the buttons
+    for button in app.mainButtons:
+        button.drawButton(app, canvas)
+
+    #create the questions
+    questionsText, answerButtons = questionInfo(app)
+    for key in range(1, len(questionsText)):
+        currentQuestion = question(questionsText[key], answerButtons[key])
+    
+    mechanics(app)
+
+
+
 
 runApp(width=900, height=600)
