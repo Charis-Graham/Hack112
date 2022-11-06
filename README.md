@@ -4,8 +4,6 @@ Welcome to our Hack 112 submission BestBot, an application that focuses on empha
 
 The premis of this application is to display how an individual's daily actions impact their health and wellbeing using a virtual robot simulation. You will need to run main.py to see the features of this app.
 
-<img width="882" alt="Screen Shot 2022-11-06 at 11 44 53 AM" src="https://user-images.githubusercontent.com/62809119/200183376-6ef10e73-b555-4ea4-b8ee-23cfa387b490.png">
-
 **Our application prompts a series of questions to the user asking the following questions:**
 1. How are you?
 2. How much have you eaten today?
