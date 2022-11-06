@@ -3,20 +3,15 @@ from robot import *
 from rounded import *
 from extras import *
 from color import *
-
-"""
-Suggestions
-"""
+from buttonsNQuestions import *
 
 def appStarted(app):
     print("")
-    app.sparkles = True
-    app.heart = 2
+    app.sparkles = False
+    app.heart = 0
     app.background = 2
-    app.sparkleCoors = [[1.5,4,10],[5,1.5,2],[3,9,18],
-                        [2,1,8],[8,8,18],[7,3,18],
-                        [8,1.5,8],[2,8,3],[7,6,18]]
-    
+    app.points = 0
+    app.mainButtons = loadButtons(app)
 
     app.heartColor = grey(100)
 
@@ -35,8 +30,25 @@ sparkles
 
 def timerFired(app):
     updateExtras(app)
-    updateSparkles(app)
-    #print(app.sparkleCoors)
+
+def mousePressed(app, event):
+    mouseX = event.x
+    mouseY = event.y
+    for button in app.mainButtons:
+        button.checkClicked(mouseX, mouseY, app)
+    print(mouseX, mouseY)
+
+def mechanics(app):
+    if app.points > 5:
+        #happy robot
+        pass
+    elif app.points > 4:
+        #functioning robot
+        pass
+    else:
+        #unhealthy robot
+        pass
+
 
 # draw the windows
 def drawWindows(app, canvas):
@@ -62,12 +74,26 @@ def redrawAll(app, canvas):
     adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
     drawWindows(app, canvas)
-    sampleList = ["Is this a question?", "How goes?", "This is a sentence", 
+    sampleList = ["Is this a question?", "How goes?", "This is a sentence",
     "Is your mental health in shambles?", "What's your favorite color?"]
     inBetweenBoxes = app.width//30
     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
-    
+
     drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
+
+    #load in the buttons
+    for button in app.mainButtons:
+        button.drawButton(app, canvas)
+
+    #create the questions
+    questionsText, answerButtons = questionInfo(app)
+    for key in range(1, len(questionsText)):
+        currentQuestion = question(questionsText[key], answerButtons[key])
+
+    mechanics(app)
+
+
+
 
 runApp(width=900, height=600)
