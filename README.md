@@ -1,4 +1,4 @@
-**Best Bot**
+#Best Bot
 
 Welcome to our Hack 112 submission (INSERT NAME), an application that focuses on emphasizing the importance of taking care of yourself :) 
 
