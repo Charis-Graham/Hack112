@@ -69,6 +69,8 @@ def loadButtons(app, size):
 def response(app, point):
     app.points += point
 
+# code that changes buttons to any selected color and saves
+# each as a png
 def changeToWhite(app, altered,imageTitle, newR = 255,newG = 255,newB = 255):
     image = Image.open(imageTitle).convert("RGBA")
     #app.brush = Image.open("brush.png").convert("RGBA")
