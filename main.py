@@ -82,22 +82,41 @@ def redrawAll(app, canvas):
     adjustX = app.width//5
     drawNiceRobot(app, canvas, adjustX)
     drawWindows(app, canvas)
-    sampleList = ["Is this a question?", "How goes?", "This is a sentence",
-    "Is your mental health in shambles?", "What's your favorite color?"]
-    inBetweenBoxes = app.width//30
-    #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
-    drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
-
-    drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
-
-    #load in the buttons
-    for button in app.mainButtons:
-        button.drawButton(app, canvas)
-
+    
     #create the questions
     questionsText, answerButtons = questionInfo(app)
     for key in range(1, len(questionsText)):
         currentQuestion = question(questionsText[key], answerButtons[key])
+    
+    #list of questions
+    questionList = ["",
+                    "How are you?",
+                    "How many meals have you eaten today?",
+                    "Have you drunk water today?",
+                    "Have you slept today?",
+                    "Have you exercised today?",
+                    "Have you spent time with friends or family today?",
+                    "Have you gone outside today?",
+                    "Have you meditated today?"]
+    inBetweenBoxes = app.width//30
+
+    #load the questions onto the screen
+    questionOnScreen = []
+    for i in range(1, len(questionList)):
+        questionOnScreen.append(questionList[i])
+        drawRounded(app, canvas, questionOnScreen, inBetweenBoxes, adjustX)
+        
+        # #load in the buttons
+        # for button in app.mainButtons:
+        #     button.drawButton(app, canvas)
+        
+        questionText, answerButtons = questionInfo(app)
+        for button in answerButtons[i]:
+            button.drawButton(app, canvas)
+  
+
+    drawSparkles(app, canvas, 0,0,(app.width//5)*3,app.height)
+
 
     mechanics(app)
 
