@@ -30,3 +30,9 @@ The user can answer a question with just the simple click of a button. Some of t
 3. Heart color fades
 4. Background can turn into a more "depressing" color.
 
+**Future Improvements**
+1. Incorporating suggestions about how a user could incorporate more healthy habits into their lives
+2. When a user is making great decisions, display facts that tell them how their actions are improving their lives
+
+**Bug**
+Multiple buttons can be clicked per row... working to fix this eventually.
