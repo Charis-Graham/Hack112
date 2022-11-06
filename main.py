@@ -14,6 +14,13 @@ def appStarted(app):
     app.mainButtons = loadButtons(app)
 
     app.heartColor = grey(100)
+    app.sparkles = True
+    app.heart = 2
+    app.background = 2
+    app.sparkleCoors = [[1.5,4,10],[5,1.5,2],[3,9,18],
+                        [2,1,8],[8,8,18],[7,3,18],
+                        [8,1.5,8],[2,8,3],[7,6,18]]
+
 
 
 """
@@ -30,6 +37,7 @@ sparkles
 
 def timerFired(app):
     updateExtras(app)
+    updateSparkles(app)
 
 def mousePressed(app, event):
     mouseX = event.x
