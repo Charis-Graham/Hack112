@@ -1,7 +1,7 @@
 Question 1: How are you?
 Answers: smiley face, sad face, meh face
 
-Question 2: How much have you eaten today?
+Question 2: How many meals have you eaten today?
 Answers: 1 meal, 2 meal, 3 meals
 Points: 1 point, 2 points, 3 points
 Baseline: 2 points for functioning
