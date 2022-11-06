@@ -1,7 +1,7 @@
 def updateExtras(app):
     if app.sparkles:
         print(True)
-        #drawSparkle(app, canvas, app.width//2, app.height//2, 20)
+        
     if app.heart == 0:
         app.heartColor = grey(100)
     elif app.heart == 1:
@@ -12,14 +12,20 @@ def updateExtras(app):
 def drawSmile(app):
     print("")
 
+def updateSparkles(app):
+    app.sparkleSize = (app.sparkleSize+5) % 20
+
+def drawSparkles(app, canvas):
+    
+    drawSparkle(app, canvas, x, y, size)
+
 def drawSparkle(app, canvas, x, y, size):
-    c = [0,3,1,1,0,2,1,-1,0,-2,-1,-1,-2,0,-1,1]
+    c = [0,1,1,0,0,-1,-1,0]
     for i in range(len(c)):
         c[i] *= size
 
     canvas.create_polygon(c[0]+x,c[1]+y,c[2]+x,c[3]+y,
                         c[4]+x,c[5]+y,c[6]+x,c[7]+y,
-                        c[8]+x,c[9]+y,c[10]+x,c[11]+y,
                          fill = "white")
 
 

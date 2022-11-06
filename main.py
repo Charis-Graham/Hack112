@@ -4,11 +4,16 @@ from rounded import *
 from extras import *
 from color import *
 
+"""
+Suggestions
+"""
+
 def appStarted(app):
     print("")
-    app.sparkles = False
+    app.sparkles = True
     app.heart = 0
     app.background = 2
+    app.sparkleSize = 10
     
 
     app.heartColor = grey(100)
@@ -28,6 +33,7 @@ sparkles
 
 def timerFired(app):
     updateExtras(app)
+    updateSparkles(app)
 
 # draw the windows
 def drawWindows(app, canvas):
@@ -58,5 +64,6 @@ def redrawAll(app, canvas):
     inBetweenBoxes = app.width//30
     #drawRoundedBoxes(app, canvas, sampleList, inBetweenBoxes, adjustX)
     drawRounded(app, canvas, sampleList, inBetweenBoxes, adjustX)
+    drawSparkles(app, canvas)
 
 runApp(width=900, height=600)

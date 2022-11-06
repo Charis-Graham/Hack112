@@ -1,8 +1,5 @@
 from color import *
 
-#(32,33,36)
-#    (49,49,52)
-
 def drawRounded(app, canvas, questions, inBetweenBoxes, adjustX):
     yPosition = app.width//15
     width = app.width//5
@@ -77,13 +74,13 @@ def drawRoundedBoxBackground(app, canvas,xSize,ySize,yPosition):
 
     # rounded outline
     canvas.create_oval(w-r -xDif, h-r-yDif,
-    w+r-xDif, h+r-yDif, fill = fillColor, outline = "black")
+    w+r-xDif, h+r-yDif, fill = fillColor, outline = fillColor)
     canvas.create_oval(w-r-xDif, h-r+yDif,
-    w+r-xDif, h+r+yDif, fill = fillColor, outline = "black")
+    w+r-xDif, h+r+yDif, fill = fillColor, outline = fillColor)
     canvas.create_oval(w-r+xDif, h-r-yDif,
-    w+r+xDif, h+r-yDif, fill = fillColor, outline = "black")
+    w+r+xDif, h+r-yDif, fill = fillColor, outline = fillColor)
     canvas.create_oval(w-r+xDif, h-r+yDif,
-    w+r+xDif, h+r+yDif, fill = fillColor, outline = "black")
+    w+r+xDif, h+r+yDif, fill = fillColor, outline = fillColor)
 
     # grey fill
     canvas.create_rectangle(w-xDif-r,h-yDif,
@@ -93,12 +90,12 @@ def drawRoundedBoxBackground(app, canvas,xSize,ySize,yPosition):
 
     # verticle outlines
     canvas.create_line(w-xDif-r,h-yDif,
-    w-xDif-r,h+yDif, fill = 'black')
+    w-xDif-r,h+yDif, fill = fillColor)
     canvas.create_line(w+xDif+r,h-yDif,
-    w+xDif+r,h+yDif, fill = 'black')
+    w+xDif+r,h+yDif, fill = fillColor)
 
     # horizontal outlines
     canvas.create_line(w-xDif,h-yDif-r,
-    w+xDif,h-yDif-r, fill = 'black')
+    w+xDif,h-yDif-r, fill = fillColor)
     canvas.create_line(w-xDif,h+yDif+r,
-    w+xDif,h+yDif+r, fill = 'black')
+    w+xDif,h+yDif+r, fill = fillColor)
