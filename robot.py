@@ -1,5 +1,8 @@
-def grey(n):
-    return rgbString(n, n, n)
+from background import *
+from color import *
+from extras import *
+
+# robot code is modified from Ollie Arrison's (darrison) week 3 homework
 
 def coor(widthOrHeight, true, scale, dif):
     # adjust the coordinate based on the width, the true adjustment, the scale
@@ -16,11 +19,6 @@ def rect(canvas, app, xCenter, yCenter, heightScale, widthScale, color):
                         coor(w, -widthScale, scale, xCenter),
                         coor(h, -heightScale, scale, yCenter),
                             fill=color, outline='black')
-
-
-# function from https://www.cs.cmu.edu/~112/notes/notes-graphics.html
-def rgbString(r, g, b):
-    return f'#{r:02x}{g:02x}{b:02x}'
 
 def oval(canvas, app, xCenter, yCenter, heightScale, widthScale, color):
     w = app.width
@@ -85,8 +83,8 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
     h = app.height
 
     mouthColor = grey(80)
-    eyeColor = grey(130)
-    heartColor = grey(100)
+    eyeColor = eyesColor(app)
+    heartColor = app.heartColor
 
     eyeX = -50 * sX
     eyeY = -110 * sY
@@ -116,6 +114,8 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
                     w/2 - mouthLength/2 - adjustX, h/2 - mouthHeight, 
                     fill=mouthColor, width = 5)
 
+    drawSmile(app, canvas, sX, sY, adjustX)
+
     # heart
     canvas.create_polygon(coor(w, heartInsideX, heartScale, heartXLoc),
                         coor(h, heartInsideY, heartScale, heartYLoc),
@@ -132,17 +132,6 @@ def drawNiceRobotDecor(canvas, app, sX, sY, adjustX):
                         fill=heartColor, outline='black')
 
     drawRobotLegs(canvas, app, adjustX, sX, sY)
-    #drawRobotArms(canvas, app, adjustX, sX, sY)
-
-def drawRobotArms(canvas, app, adjustX, sX, sY):
-    armX = 150 * sX
-    armY = 90 * sY
-    armW = 30 * sX
-    armH = 30 * sY
-
-    rect(canvas, app, armX - adjustX, armY, armH, armW, grey(60))
-    rect(canvas, app, -armX- adjustX, armY, armH, armW, grey(60))
-
 
 def drawRobotLegs(canvas, app, adjustX, sX, sY):
     legX = 80 * sX
@@ -181,7 +170,13 @@ def drawNiceRobot(app, canvas, adjustX):
                                 blue + i // blueRate)
         canvas.create_rectangle(0, backgroundIncrement * i, w, h, 
                             fill=gradientColor, outline=gradientColor)
-
+    
+    if app.background == 0:
+        drawSadBackground(canvas, app, w, h)
+    elif app.background == 1:
+        drawHappyBackGround(canvas, app, w, h)
+    else:
+        drawHappyiestBackGround(canvas, app, w, h)
     # base of robot:
     drawNiceRobotBase(canvas, app, sX, sY, adjustX)
 
